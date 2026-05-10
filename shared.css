@@ -1,0 +1,296 @@
+/* ══════════════════════════════════════
+   SHARED.CSS  —  PawDiary
+   Inner pages layout, components & utilities
+   ══════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    background: #fcf5f9; /* Very light pink background */
+    display: flex;
+    min-height: 100vh;
+    color: #444;
+}
+
+/* ══════════════════════════════
+   SIDEBAR
+   ══════════════════════════════ */
+.sidebar {
+    width: 250px;
+    min-height: 100vh;
+    background: #ffffff;
+    padding: 30px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    top: 0; left: 0;
+    border-right: 2px solid #fae8f2;
+    z-index: 200;
+}
+
+.sidebar .logo {
+    font-size: 48px;
+    margin-bottom: 8px;
+}
+
+.sidebar h2 {
+    color: #e91e8c; /* Pink */
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.sidebar > p {
+    color: #f48fb1;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+/* ── NAV MENU ── */
+.nav-menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 18px;
+    border-radius: 14px;
+    text-decoration: none;
+    color: #777;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+    background: #fdf4fb;
+    color: #d63384;
+}
+
+.nav-item.active {
+    background: #fde8f4; /* Light pink active */
+    color: #e91e8c;
+    font-weight: 700;
+}
+
+.nav-icon {
+    font-size: 18px;
+    min-width: 24px;
+    text-align: center;
+}
+
+/* ── LOGOUT ── */
+.logout-btn {
+    width: 100%;
+    padding: 12px;
+    background: white;
+    color: #e91e8c;
+    border: 2px solid #e91e8c;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 20px;
+}
+
+.logout-btn:hover {
+    background: #fde8f4;
+}
+
+/* ══════════════════════════════
+   MAIN CONTENT
+   ══════════════════════════════ */
+.main {
+    margin-left: 250px;
+    flex: 1;
+    padding: 35px 40px;
+    min-height: 100vh;
+}
+
+/* ── TOPBAR ── */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.topbar h1 {
+    font-size: 26px;
+    font-weight: 800;
+    color: #e91e8c;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.welcome-text {
+    font-size: 14px;
+    color: #888;
+    font-weight: 500;
+}
+.welcome-text strong {
+    color: #e91e8c;
+    font-weight: 700;
+}
+
+/* ══════════════════════════════
+   PANEL
+   ══════════════════════════════ */
+.panel {
+    background: white;
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 24px;
+    border: 2px solid #fcf0f7;
+    box-shadow: 0 4px 20px rgba(233,30,140,0.06);
+    transition: box-shadow 0.3s;
+}
+
+.panel:hover {
+    box-shadow: 0 6px 26px rgba(233,30,140,0.1);
+}
+
+.panel > h3,
+.panel-header h3 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #e91e8c;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px dashed #fde8f4;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ══════════════════════════════
+   FORM GRID
+   ══════════════════════════════ */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group.full { grid-column: 1 / -1; }
+
+.form-group label {
+    font-size: 13px;
+    font-weight: 700;
+    color: #666;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px 16px;
+    border: 2px solid #f0e8ff;
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #444;
+    background: #fafafa;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #e91e8c;
+    box-shadow: 0 0 0 3px rgba(233,30,140,0.1);
+    background: white;
+}
+
+.form-group textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* ══════════════════════════════
+   BUTTONS
+   ══════════════════════════════ */
+.btn-primary {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #ff6b9d, #e91e8c);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 6px 18px rgba(233,30,140,0.25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(233,30,140,0.35);
+}
+
+/* ══════════════════════════════
+   SEARCH
+   ══════════════════════════════ */
+.search-wrap {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 16px 12px 44px;
+    border: 2px solid #fce8f2;
+    border-radius: 12px;
+    font-size: 14px;
+    font-family: inherit;
+    outline: none;
+    background: white;
+    transition: all 0.2s;
+}
+
+.search-input:focus {
+    border-color: #e91e8c;
+    box-shadow: 0 0 0 3px rgba(233,30,140,0.1);
+}
+
+/* ══════════════════════════════
+   SCROLLBAR
+   ══════════════════════════════ */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #fdf4fb; }
+::-webkit-scrollbar-thumb { background: #f0b8d8; border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #d63384; }

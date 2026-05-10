@@ -15,114 +15,130 @@
     <div class="logo">📖</div>
     <h2>PawDiary</h2>
     <p>Pet Activity Journal</p>
-
     <nav class="nav-menu">
-        <a href="dashboard.html" class="nav-item active">
-            <span class="nav-icon">🏠</span> Dashboard
-        </a>
-
-        <a href="pets.html" class="nav-item">
-            <span class="nav-icon">🐶</span> My Pets
-        </a>
-
-        <a href="activities.html" class="nav-item">
-            <span class="nav-icon">📋</span> Activities
-        </a>
-
-        <a href="health.html" class="nav-item">
-            <span class="nav-icon">🏥</span> Health Records
-        </a>
-
-        <a href="profile.html" class="nav-item">
-            <span class="nav-icon">👤</span> My Profile
-        </a>
+        <a href="dashboard.html" class="nav-item active"><span class="nav-icon">🏠</span> Dashboard</a>
+        <a href="pets.html"      class="nav-item"><span class="nav-icon">🐶</span> My Pets</a>
+        <a href="activities.html"class="nav-item"><span class="nav-icon">📋</span> Activities</a>
+        <a href="health.html"    class="nav-item"><span class="nav-icon">🏥</span> Health Records</a>
+        <a href="profile.html"   class="nav-item"><span class="nav-icon">👤</span> My Profile</a>
     </nav>
-
-    <button class="logout-btn" id="logoutBtn">
-        🚪 Logout
-    </button>
+    <button class="logout-btn" id="logoutBtn">🚪 Logout</button>
 </div>
 
 <!-- MAIN -->
 <div class="main">
 
-    <!-- Topbar -->
+    <!-- TOPBAR -->
     <div class="topbar">
         <h1>🐾 Dashboard</h1>
-
-        <div class="welcome">
-            Welcome back,
-            <span id="welcomeUser">User</span>! 🌸
+        <div class="welcome-text">
+            Welcome back, <strong id="welcomeUser">User</strong>! 🌸
         </div>
     </div>
 
-    <!-- Summary Cards -->
+    <!-- SUMMARY CARDS -->
     <div class="cards">
-
         <div class="card">
             <div class="card-icon">🐶</div>
             <div class="card-count" id="totalPets">0</div>
             <div class="card-label">Total Pets</div>
         </div>
-
         <div class="card">
             <div class="card-icon">📋</div>
             <div class="card-count" id="totalActivities">0</div>
             <div class="card-label">Total Activities</div>
         </div>
-
         <div class="card">
             <div class="card-icon">🏥</div>
             <div class="card-count" id="totalHealth">0</div>
             <div class="card-label">Health Records</div>
         </div>
+    </div>
+
+    <!-- MIDDLE PANELS -->
+    <div class="panels-row">
+
+        <!-- Activities Per Pet -->
+        <div class="panel">
+            <h3>📊 Activities Per Pet</h3>
+            <div style="height: 200px; position: relative;">
+                <canvas id="actByPetChart"></canvas>
+                <div class="empty-state" id="chartEmptyMsg" style="display:none; padding-top: 60px;">
+                    🐾 No data yet. Add pets and activities!
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activities -->
+        <div class="panel">
+            <h3>📋 Recent Activities</h3>
+            <div class="search-wrap">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="searchRecent" placeholder="Search activity...">
+            </div>
+            
+            <div id="recentContainer">
+                <div class="recent-list" id="recentList" style="display: none;">
+                    <!-- Filled by JS -->
+                </div>
+                <div class="empty-state" id="recentEmptyMsg">
+                    🐾 No activities yet. Start logging!
+                </div>
+            </div>
+        </div>
 
     </div>
 
-    <!-- CONTENT -->
+    <!-- SQL JOINS SECTION -->
     <div class="panel">
-        <h3>🐾 Welcome to PawDiary Dashboard</h3>
+        <h3>🔗 SQL Join Integration</h3>
+        
+        <!-- TABS -->
+        <div class="join-tabs">
+            <button class="join-tab inner active" onclick="showJoin('inner', this)">
+                <span class="dot"></span> INNER JOIN
+            </button>
+            <button class="join-tab left" onclick="showJoin('left', this)">
+                <span class="dot"></span> LEFT JOIN
+            </button>
+            <button class="join-tab right" onclick="showJoin('right', this)">
+                <span class="dot"></span> RIGHT JOIN
+            </button>
+            <button class="join-tab outer" onclick="showJoin('outer', this)">
+                <span class="dot"></span> FULL OUTER JOIN
+            </button>
+        </div>
 
-        <p>
-            Your pet activity monitoring system is now connected successfully.
-        </p>
+        <!-- DYNAMIC CONTENT AREA -->
+        <div class="join-desc" id="joinDescBox">
+            <span class="badge" id="joinBadge">INNER JOIN</span>
+            <span id="joinText">Shows activities <strong>only</strong> if a matching pet exists in both tables.</span>
+        </div>
+
+        <div class="search-wrap join-search">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchJoin" placeholder="Search...">
+        </div>
+
+        <div class="join-results">
+            <div class="table-header">
+                <span>Pet Name</span>
+                <span>Activity Type</span>
+                <span>Date</span>
+            </div>
+            <div id="joinRows">
+                <!-- Filled by JS -->
+            </div>
+        </div>
+        
+        <div class="empty-state" id="joinEmptyMsg" style="display:none; border:none; padding-top: 15px;">
+            No matching data. Add activities first!
+        </div>
+
     </div>
 
 </div>
 
-<!-- LOGIN CONNECTION SCRIPT -->
-<script>
-    // Check login
-    const user = localStorage.getItem('pawdiary_user');
-
-    // Redirect if not logged in
-    if (!user) {
-        window.location.href = 'login.html';
-    }
-
-    // Show username
-    const welcomeUser = document.getElementById('welcomeUser');
-
-    if (welcomeUser && user) {
-        welcomeUser.textContent = user;
-    }
-
-    // Logout
-    const logoutBtn = document.getElementById('logoutBtn');
-
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', function () {
-
-            // Remove saved login
-            localStorage.removeItem('pawdiary_user');
-
-            // Back to login
-            window.location.href = 'login.html';
-        });
-    }
-</script>
-
 <script src="dashboard.js"></script>
-
 </body>
 </html>

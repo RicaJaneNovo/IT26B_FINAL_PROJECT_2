@@ -1,60 +1,66 @@
+/* ══════════════════════════════════════
+   LOGIN.CSS  —  PawDiary
+   ══════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff0eb;
+    background: linear-gradient(135deg, #fff0f6 0%, #fce4f2 40%, #f3e8ff 100%);
     overflow: hidden;
     position: relative;
 }
 
-/* ── BACKGROUND ── */
+/* ── BACKGROUND FLOATING ANIMALS ── */
 .bg-pattern {
     position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
+    inset: 0;
     z-index: 0;
     pointer-events: none;
+    overflow: hidden;
 }
 
 .bg-animal {
     position: absolute;
-    font-size: 55px;
-    opacity: 0.12;
+    opacity: 0.1;
     animation: floatBg 7s ease-in-out infinite;
+    user-select: none;
 }
 
-.bg-animal:nth-child(1)  { top: 3%;  left: 3%;   font-size: 65px; animation-delay: 0s; }
-.bg-animal:nth-child(2)  { top: 5%;  right: 3%;  font-size: 60px; animation-delay: 1s; }
-.bg-animal:nth-child(3)  { top: 25%; left: 2%;   font-size: 50px; animation-delay: 2s; }
-.bg-animal:nth-child(4)  { top: 40%; right: 2%;  font-size: 55px; animation-delay: 0.5s; }
-.bg-animal:nth-child(5)  { top: 60%; left: 3%;   font-size: 60px; animation-delay: 1.5s; }
+.bg-animal:nth-child(1)  { top: 3%;  left: 3%;   font-size: 70px; animation-delay: 0s; }
+.bg-animal:nth-child(2)  { top: 5%;  right: 3%;  font-size: 65px; animation-delay: 1s; }
+.bg-animal:nth-child(3)  { top: 25%; left: 2%;   font-size: 52px; animation-delay: 2s; }
+.bg-animal:nth-child(4)  { top: 40%; right: 2%;  font-size: 58px; animation-delay: 0.5s; }
+.bg-animal:nth-child(5)  { top: 60%; left: 3%;   font-size: 62px; animation-delay: 1.5s; }
 .bg-animal:nth-child(6)  { top: 75%; right: 3%;  font-size: 50px; animation-delay: 2.5s; }
 .bg-animal:nth-child(7)  { top: 85%; left: 20%;  font-size: 55px; animation-delay: 3s; }
-.bg-animal:nth-child(8)  { top: 88%; right: 15%; font-size: 65px; animation-delay: 1s; }
-.bg-animal:nth-child(9)  { top: 15%; left: 18%;  font-size: 45px; animation-delay: 2s; }
-.bg-animal:nth-child(10) { top: 50%; left: 15%;  font-size: 50px; animation-delay: 0.8s; }
+.bg-animal:nth-child(8)  { top: 88%; right: 15%; font-size: 66px; animation-delay: 1s; }
+.bg-animal:nth-child(9)  { top: 15%; left: 18%;  font-size: 46px; animation-delay: 2s; }
+.bg-animal:nth-child(10) { top: 50%; left: 15%;  font-size: 52px; animation-delay: 0.8s; }
 .bg-animal:nth-child(11) { top: 30%; right: 15%; font-size: 48px; animation-delay: 3.5s; }
-.bg-animal:nth-child(12) { top: 70%; right: 20%; font-size: 52px; animation-delay: 1.2s; }
+.bg-animal:nth-child(12) { top: 70%; right: 20%; font-size: 54px; animation-delay: 1.2s; }
 
 .paw-print {
     position: absolute;
-    font-size: 30px;
-    opacity: 0.08;
-    animation: floatBg 8s ease-in-out infinite;
+    opacity: 0.07;
+    animation: floatBg 9s ease-in-out infinite;
+    user-select: none;
 }
 
-.paw-print:nth-child(13) { top: 20%; left: 35%;  animation-delay: 0.3s; }
-.paw-print:nth-child(14) { top: 65%; left: 40%;  animation-delay: 1.8s; }
-.paw-print:nth-child(15) { top: 45%; right: 35%; animation-delay: 2.2s; }
-.paw-print:nth-child(16) { top: 80%; left: 50%;  animation-delay: 0.6s; }
+.paw-print:nth-child(13) { top: 20%; left: 35%;  font-size: 32px; animation-delay: 0.3s; }
+.paw-print:nth-child(14) { top: 65%; left: 40%;  font-size: 28px; animation-delay: 1.8s; }
+.paw-print:nth-child(15) { top: 45%; right: 35%; font-size: 30px; animation-delay: 2.2s; }
+.paw-print:nth-child(16) { top: 80%; left: 50%;  font-size: 26px; animation-delay: 0.6s; }
 
 @keyframes floatBg {
-    0%, 100% { transform: translateY(0px); }
-    50%       { transform: translateY(-15px); }
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50%       { transform: translateY(-18px) rotate(5deg); }
 }
 
 /* ── CARD ── */
@@ -62,72 +68,82 @@ body {
     position: relative;
     z-index: 1;
     background: white;
-    padding: 45px 45px 40px;
-    border-radius: 30px;
-    box-shadow: 0 20px 60px rgba(255,100,150,0.15);
+    padding: 46px 44px 40px;
+    border-radius: 32px;
+    box-shadow: 0 24px 70px rgba(214,51,132,0.16), 0 4px 20px rgba(0,0,0,0.04);
     width: 100%;
     max-width: 420px;
     text-align: center;
-    border: 1.5px solid rgba(255,182,193,0.5);
+    border: 1.5px solid rgba(255,182,210,0.4);
+    animation: cardIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes cardIn {
+    from { transform: translateY(20px) scale(0.96); opacity: 0; }
+    to   { transform: translateY(0)    scale(1);    opacity: 1; }
 }
 
 .top-animals {
-    font-size: 38px;
+    font-size: 36px;
     margin-bottom: 12px;
     letter-spacing: 8px;
 }
 
 .logo-icon {
-    font-size: 52px;
-    margin-bottom: 10px;
+    font-size: 54px;
+    margin-bottom: 8px;
     display: block;
     animation: bounce 2.5s ease-in-out infinite;
 }
 
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-8px); }
+    50%       { transform: translateY(-9px); }
 }
 
 h1 {
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 800;
-    color: #e91e8c;
-    margin-bottom: 6px;
+    color: #d63384;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
 }
 
 .tagline {
     color: #f48fb1;
     font-size: 13px;
-    margin-bottom: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
 }
 
 .divider {
-    font-size: 16px;
+    font-size: 15px;
     color: #f4a0c0;
     margin-bottom: 22px;
-    letter-spacing: 5px;
+    letter-spacing: 6px;
 }
 
 /* ── ALERTS ── */
 .alert-error {
-    background: #ffe0e0;
+    background: linear-gradient(135deg, #fff0f0, #fde2e2);
     color: #c0392b;
-    padding: 10px 14px;
-    border-radius: 10px;
+    padding: 11px 14px;
+    border-radius: 12px;
     margin-bottom: 15px;
     font-size: 13px;
-    border-left: 4px solid #c0392b;
+    font-weight: 600;
+    border-left: 4px solid #e74c3c;
     text-align: left;
 }
 
 .alert-success {
-    background: #e0ffe0;
-    color: #27ae60;
-    padding: 10px 14px;
-    border-radius: 10px;
+    background: linear-gradient(135deg, #e8fff0, #d4f8e4);
+    color: #1a7a45;
+    padding: 11px 14px;
+    border-radius: 12px;
     margin-bottom: 15px;
     font-size: 13px;
+    font-weight: 600;
     border-left: 4px solid #27ae60;
     text-align: left;
 }
@@ -139,23 +155,24 @@ input[type="text"],
 input[type="password"] {
     width: 100%;
     padding: 14px 18px;
-    border: none;
+    border: 2px solid #f0e8f8;
     border-radius: 50px;
-    font-size: 15px;
+    font-size: 14px;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
     outline: none;
-    background: #f0f4ff;
-    color: #555;
-    transition: all 0.3s;
-    font-family: 'Segoe UI', sans-serif;
+    background: #fafafa;
+    color: #444;
+    transition: all 0.25s;
 }
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    background: #e8eeff;
-    box-shadow: 0 0 0 3px rgba(233,30,140,0.1);
+    background: white;
+    border-color: #d63384;
+    box-shadow: 0 0 0 4px rgba(214,51,132,0.1);
 }
 
-input::placeholder { color: #aab; }
+input::placeholder { color: #ccc; }
 
 /* ── SHOW PASSWORD ── */
 .show-password {
@@ -163,7 +180,7 @@ input::placeholder { color: #aab; }
     align-items: center;
     gap: 8px;
     margin-bottom: 18px;
-    padding-left: 5px;
+    padding-left: 6px;
     text-align: left;
 }
 
@@ -171,58 +188,65 @@ input::placeholder { color: #aab; }
     width: 15px;
     height: 15px;
     cursor: pointer;
-    accent-color: #e91e8c;
+    accent-color: #d63384;
     margin: 0;
 }
 
 .show-password label {
     font-size: 13px;
-    color: #aab;
+    color: #bbb;
     cursor: pointer;
+    font-weight: 500;
 }
 
 /* ── BUTTONS ── */
 .btn-login {
     width: 100%;
     padding: 15px;
-    background: linear-gradient(135deg, #ff6b9d, #e91e8c);
+    background: linear-gradient(135deg, #ff6b9d, #d63384);
     color: white;
     border: none;
     border-radius: 50px;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
     cursor: pointer;
-    margin-bottom: 14px;
-    transition: all 0.3s;
-    box-shadow: 0 8px 20px rgba(233,30,140,0.3);
+    margin-bottom: 12px;
+    transition: all 0.25s;
+    box-shadow: 0 8px 22px rgba(214,51,132,0.32);
+    letter-spacing: 0.3px;
 }
 
 .btn-login:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 25px rgba(233,30,140,0.4);
+    box-shadow: 0 14px 28px rgba(214,51,132,0.4);
 }
 
 .btn-login:disabled {
-    opacity: 0.7;
+    opacity: 0.65;
     cursor: not-allowed;
     transform: none;
+    box-shadow: none;
 }
 
 .btn-register {
     width: 100%;
     padding: 14px;
     background: white;
-    color: #e91e8c;
-    border: 2px solid #e91e8c;
+    color: #d63384;
+    border: 2px solid #d63384;
     border-radius: 50px;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.25s;
 }
 
 .btn-register:hover {
-    background: linear-gradient(135deg, #ff6b9d, #e91e8c);
+    background: linear-gradient(135deg, #ff6b9d, #d63384);
     color: white;
+    border-color: transparent;
     transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(214,51,132,0.28);
 }

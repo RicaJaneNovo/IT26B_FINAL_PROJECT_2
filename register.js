@@ -21,7 +21,7 @@ document.getElementById('registerForm')
         const password    = document.getElementById('password').value.trim();
         const errorMsg    = document.getElementById('errorMsg');
         const successMsg  = document.getElementById('successMsg');
-        const registerBtn = document.getElementById('registerBtn');
+        const registerBtn = document.querySelector('#registerForm button[type="submit"]');
 
         // Hide messages
         errorMsg.style.display   = 'none';
@@ -53,7 +53,7 @@ document.getElementById('registerForm')
         registerBtn.textContent = 'Creating account...';
 
         // ── FETCH TO PHP ──
-        fetch('http://localhost/pawdiary/register_action.php', {
+        fetch('register_action.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, email, password })

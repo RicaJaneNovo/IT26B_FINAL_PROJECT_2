@@ -38,7 +38,7 @@ document.getElementById('loginForm')
         loginBtn.textContent = 'Logging in...';
 
         // ── FETCH TO PHP ──
-        fetch('http://localhost/pawdiary/login_action.php', {
+        fetch('login_action.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ username, password })
