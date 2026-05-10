@@ -294,3 +294,117 @@ body {
 ::-webkit-scrollbar-track { background: #fdf4fb; }
 ::-webkit-scrollbar-thumb { background: #f0b8d8; border-radius: 10px; }
 ::-webkit-scrollbar-thumb:hover { background: #d63384; }
+
+/* ══════════════════════════════
+   MODALS
+   ══════════════════════════════ */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(233,30,140,0.15);
+    transform: translateY(20px);
+    transition: all 0.3s;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-overlay.show .modal {
+    transform: translateY(0);
+}
+
+.modal h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: #e91e8c;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 2px dashed #fde8f4;
+}
+
+.modal-btns {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.modal-btns button {
+    flex: 1;
+}
+
+/* ══════════════════════════════
+   SECONDARY & DANGER BUTTONS
+   ══════════════════════════════ */
+.btn-cancel {
+    padding: 12px 24px;
+    background: #fdf4fb;
+    color: #d63384;
+    border: 2px solid #fde8f4;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+    background: #fae8f2;
+}
+
+.btn-secondary {
+    padding: 8px 16px;
+    background: #fff;
+    color: #e91e8c;
+    border: 2px solid #fde8f4;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+    background: #fdf4fb;
+    border-color: #e91e8c;
+}
+
+.btn-danger {
+    padding: 8px 16px;
+    background: #fff0f0;
+    color: #dc3545;
+    border: 2px solid #ffcccc;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-danger:hover {
+    background: #ffe6e6;
+    border-color: #dc3545;
+}
